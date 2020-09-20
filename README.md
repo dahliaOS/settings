@@ -1,4 +1,4 @@
-# settings
+# Settings application
 The settings application for dahliaOS
 
 ## Application Requirements
