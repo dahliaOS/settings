@@ -1,8 +1,9 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:zenit_ui/zenit_ui.dart';
 
-class ExpandableSwitchListTile extends StatelessWidget {
+class ExpandableZenitSwitchListTile extends StatelessWidget {
   final Widget? content;
   final Widget? title;
   final Widget? subtitle;
@@ -10,7 +11,7 @@ class ExpandableSwitchListTile extends StatelessWidget {
   final bool value;
   final ValueChanged<bool> onChanged;
 
-  const ExpandableSwitchListTile({
+  const ExpandableZenitSwitchListTile({
     super.key,
     this.content,
     this.title,
@@ -24,10 +25,9 @@ class ExpandableSwitchListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SwitchListTile(
+        ZenitSwitchListTile(
           title: title ?? const Text("Expandable List Tile"),
-          subtitle:
-              subtitle ?? const Text("Description of an Expandable List Tile"),
+          subtitle: subtitle ?? const Text("Description of an Expandable List Tile"),
           secondary: leading,
           value: value,
           onChanged: onChanged,

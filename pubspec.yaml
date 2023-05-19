@@ -12,7 +12,9 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   dahlia_shared:
-    git: https://github.com/dahliaos/shared
+    git: 
+      url: https://github.com/dahliaos/shared
+      ref: develop
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -24,6 +26,11 @@ dependencies:
     git:
       url: https://github.com/HrX03/yatl
       path: yatl_flutter
+  zenit_ui: 
+    git: 
+      url: https://github.com/dahliaOS/zenit_ui.git
+      # change before merge
+      ref: Version-0.0.11
 
 dev_dependencies:
   lint: ^2.0.1
