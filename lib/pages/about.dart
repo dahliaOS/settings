@@ -17,8 +17,8 @@ limitations under the License.
 import 'package:dahlia_shared/dahlia_shared.dart';
 import 'package:flutter/material.dart';
 import 'package:settings/widgets/list_tiles.dart';
-import 'package:settings/widgets/settings_card.dart';
 import 'package:settings/widgets/settings_content_header.dart';
+import 'package:zenit_ui/zenit_ui.dart';
 
 class SettingsPageAbout extends StatelessWidget {
   const SettingsPageAbout({super.key});
@@ -69,82 +69,82 @@ class SettingsPageAbout extends StatelessWidget {
                 SettingsContentHeader(
                   strings.settings.pagesAboutSystemInformation,
                 ),
-                SettingsCard(
-                  children: [
-                    ListTile(
-                      title: Text(
-                        strings.settings.pagesAboutSystemInformationEnvironment,
+                Card(
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: Text(
+                          strings.settings.pagesAboutSystemInformationEnvironment,
+                        ),
+                        subtitle: const Text("0"),
+                        leading: const Icon(Icons.memory),
                       ),
-                      subtitle: const Text("0"),
-                      leading: const Icon(Icons.memory),
-                    ),
-                    ListTile(
-                      title: Text(
-                        strings
-                            .settings.pagesAboutSystemInformationArchitecture,
+                      ListTile(
+                        title: Text(
+                          strings.settings.pagesAboutSystemInformationArchitecture,
+                        ),
+                        subtitle: const Text("0"),
+                        leading: const Icon(Icons.architecture),
                       ),
-                      subtitle: const Text("0"),
-                      leading: const Icon(Icons.architecture),
-                    ),
-                    ListTile(
-                      title: Text(
-                        strings.settings.pagesAboutSystemInformationDesktop,
-                      ),
-                      subtitle: const Text("Settings 0"),
-                      leading: const Icon(Icons.desktop_mac),
-                    )
-                  ],
+                      ListTile(
+                        title: Text(
+                          strings.settings.pagesAboutSystemInformationDesktop,
+                        ),
+                        subtitle: const Text("Settings 0"),
+                        leading: const Icon(Icons.desktop_mac),
+                      )
+                    ],
+                  ),
                 ),
                 SettingsContentHeader(
                   strings.settings.pagesAboutSoftwareUpdate,
                 ),
-                SettingsCard(
-                  children: [
-                    ListTile(
-                      title: Text(
-                        strings.settings
-                            .pagesAboutSoftwareUpdateTileTitle("220222"),
-                      ),
-                      subtitle: Text(
-                        strings.settings.pagesAboutSoftwareUpdateTileSubtitle(
-                          "2/22/2022",
+                Card(
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: Text(
+                          strings.settings.pagesAboutSoftwareUpdateTileTitle("220222"),
                         ),
-                      ),
-                      leading: const Icon(Icons.update),
-                      trailing: ElevatedButton(
-                        onPressed: null,
-                        child: Padding(
-                          padding: ThemeConstants.buttonPadding,
-                          child: const Text(
+                        subtitle: Text(
+                          strings.settings.pagesAboutSoftwareUpdateTileSubtitle(
+                            "2/22/2022",
+                          ),
+                        ),
+                        leading: const Icon(Icons.update),
+                        trailing: const ZenitTextButton(
+                          child: Text(
                             "Check for update",
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 const SettingsContentHeader("Legal"),
-                SettingsCard(
-                  children: [
-                    RouterListTile(
-                      leading: const Icon(Icons.info_outline_rounded),
-                      title: const Text("Licenses"),
-                      subtitle: const Text("Show third party licenses"),
-                      onTap: () => showLicensePage(
-                        context: context,
-                        applicationName: "Settings",
-                        applicationIcon: Padding(
-                          padding: const EdgeInsets.only(top: 24.0),
-                          child: Image.asset(
-                            "assets/images/logos/pangolin.png",
-                            height: 64,
-                            width: 64,
+                Card(
+                  child: Column(
+                    children: [
+                      RouterListTile(
+                        leading: const Icon(Icons.info_outline_rounded),
+                        title: const Text("Licenses"),
+                        subtitle: const Text("Show third party licenses"),
+                        onTap: () => showLicensePage(
+                          context: context,
+                          applicationName: "Settings",
+                          applicationIcon: Padding(
+                            padding: const EdgeInsets.only(top: 24.0),
+                            child: Image.asset(
+                              "assets/images/logos/pangolin.png",
+                              height: 64,
+                              width: 64,
+                            ),
                           ),
+                          applicationLegalese: "Apache-2.0 License",
                         ),
-                        applicationLegalese: "Apache-2.0 License",
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 )
               ],
             ),

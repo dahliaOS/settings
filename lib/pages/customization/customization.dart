@@ -18,7 +18,6 @@ import 'package:dahlia_shared/dahlia_shared.dart';
 import 'package:flutter/material.dart';
 import 'package:settings/data/presets.dart';
 import 'package:settings/widgets/accent_color_button.dart';
-import 'package:settings/widgets/settings_card.dart';
 import 'package:settings/widgets/settings_content_header.dart';
 import 'package:settings/widgets/settings_page.dart';
 import 'package:settings/widgets/taskbar_alignment_button.dart';
@@ -28,8 +27,7 @@ class SettingsPageCustomization extends StatefulWidget {
   const SettingsPageCustomization({super.key});
 
   @override
-  _SettingsPageCustomizationState createState() =>
-      _SettingsPageCustomizationState();
+  _SettingsPageCustomizationState createState() => _SettingsPageCustomizationState();
 }
 
 class _SettingsPageCustomizationState extends State<SettingsPageCustomization>
@@ -40,52 +38,51 @@ class _SettingsPageCustomizationState extends State<SettingsPageCustomization>
       title: strings.settings.pagesCustomizationTitle,
       cards: [
         SettingsContentHeader(strings.settings.pagesCustomizationTheme),
-        SettingsCard(
-          children: [
-            SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: SettingsPresets.themeModePresets
-                      .map((e) => ThemeModeButton(model: e))
-                      .toList(),
+        Card(
+          child: Column(
+            children: [
+              SizedBox(
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: SettingsPresets.themeModePresets.map((e) => ThemeModeButton(model: e)).toList(),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: BuiltinColor.values
-                      .map((e) => AccentColorButton(color: e))
-                      .toList(),
+              SizedBox(
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: BuiltinColor.values.map((e) => AccentColorButton(color: e)).toList(),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         const SettingsContentHeader("Taskbar Alignment"),
         //TODO make this strings.settings.pagesCustomizationTaskbarAlignment
-        SettingsCard(
-          children: [
-            SizedBox(
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Wrap(
-                  alignment: WrapAlignment.spaceEvenly,
-                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: SettingsPresets.taskbarAlignmentPresets
-                      .map((e) => TaskbarAlignmentButton(model: e))
-                      .toList(),
+        Card(
+          child: Column(
+            children: [
+              SizedBox(
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Wrap(
+                    alignment: WrapAlignment.spaceEvenly,
+                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children:
+                        SettingsPresets.taskbarAlignmentPresets.map((e) => TaskbarAlignmentButton(model: e)).toList(),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );

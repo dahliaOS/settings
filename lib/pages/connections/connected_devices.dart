@@ -17,7 +17,6 @@ limitations under the License.
 import 'package:dahlia_shared/dahlia_shared.dart';
 import 'package:flutter/material.dart';
 import 'package:settings/widgets/list_tiles.dart';
-import 'package:settings/widgets/settings_card.dart';
 import 'package:settings/widgets/settings_content_header.dart';
 import 'package:settings/widgets/settings_page.dart';
 
@@ -30,44 +29,47 @@ class SettingsPageConnectedDevices extends StatelessWidget {
       title: strings.settings.pagesConnectionsTitle,
       cards: [
         SettingsContentHeader(strings.settings.pagesConnectionsBluetooth),
-        SettingsCard(
-          children: [
-            ExpandableSwitchListTile(
-              value: false,
-              onChanged: (val) {},
-              title: Text(
-                strings.settings.pagesConnectionsBluetoothSwitchTileTitle,
+        Card(
+          child: Column(
+            children: [
+              ExpandableZenitSwitchListTile(
+                value: false,
+                onChanged: (val) {},
+                title: Text(
+                  strings.settings.pagesConnectionsBluetoothSwitchTileTitle,
+                ),
+                subtitle: Text(
+                  strings.settings.pagesConnectionsBluetoothSwitchTileSubtitleDisabled,
+                ),
+                leading: const Icon(Icons.bluetooth_rounded),
               ),
-              subtitle: Text(
-                strings.settings
-                    .pagesConnectionsBluetoothSwitchTileSubtitleDisabled,
+              RouterListTile(
+                title: Text(
+                  strings.settings.pagesConnectionsBluetoothFileTransferTileTitle,
+                ),
+                leading: const Icon(Icons.file_copy_rounded),
               ),
-              leading: const Icon(Icons.bluetooth_rounded),
-            ),
-            RouterListTile(
-              title: Text(
-                strings.settings.pagesConnectionsBluetoothFileTransferTileTitle,
-              ),
-              leading: const Icon(Icons.file_copy_rounded),
-            ),
-          ],
+            ],
+          ),
         ),
         SettingsContentHeader(
           strings.settings.pagesConnectionsPhoneIntegration,
         ),
-        SettingsCard(
-          children: [
-            ExpandableListTile(
-              value: false,
-              title: Text(
-                strings.settings.pagesConnectionsPhoneIntegrationTileTitle,
+        Card(
+          child: Column(
+            children: [
+              ExpandableListTile(
+                value: false,
+                title: Text(
+                  strings.settings.pagesConnectionsPhoneIntegrationTileTitle,
+                ),
+                subtitle: Text(
+                  strings.settings.pagesConnectionsPhoneIntegrationTileSubtitle,
+                ),
+                leading: const Icon(Icons.phone_android_rounded),
               ),
-              subtitle: Text(
-                strings.settings.pagesConnectionsPhoneIntegrationTileSubtitle,
-              ),
-              leading: const Icon(Icons.phone_android_rounded),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );

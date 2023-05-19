@@ -16,7 +16,6 @@ limitations under the License.
 
 import 'package:dahlia_shared/dahlia_shared.dart';
 import 'package:flutter/material.dart';
-import 'package:settings/widgets/settings_card.dart';
 import 'package:settings/widgets/settings_page.dart';
 
 class SettingsPageNetwork extends StatefulWidget {
@@ -27,21 +26,19 @@ class SettingsPageNetwork extends StatefulWidget {
 }
 
 class _SettingsPageNetworkState extends State<SettingsPageNetwork> {
-  bool _wifiEnabled = false;
-  bool _ethernetEnabled = true;
+  //final bool _wifiEnabled = false;
+  //final bool _ethernetEnabled = true;
 
   @override
   Widget build(BuildContext context) {
     return SettingsPage(
       title: strings.settings.pagesNetworkTitle,
       cards: const [
-        SettingsCard(
-          children: [
-            ListTile(
-              //TODO add localization String
-              title: Text("Not supported on this platform"),
-            ),
-          ],
+        Card(
+          child: ListTile(
+            //TODO add localization String
+            title: Text("Not supported on this platform"),
+          ),
         ),
       ],
     );
